@@ -35,7 +35,7 @@ Best use this image with the official docker-mysql image. This has been tested a
 
 2. Setup SuiteCRM. Enter the port you would like to expose
     
-    `docker run -d -p 8020:80 --link mysqlserver --name suitecrmserver bertschiweb/suitecrm`
+    `docker run -d -p 8020:80 8443:443 --link mysqlserver --name suitecrmserver bertschiweb/suitecrm`
 
 3. Open your browser and enter the url `http://yourdockerserver:8020` 
     1. Accept the License Agreement
@@ -56,7 +56,7 @@ Best use this image with the official docker-mysql image. This has been tested a
 1. Run Vagrant Box and connect
 2. change directory to `/vagrant`
 3. Build: `docker build -t suitecrm .`
-4. Run: `docker run -d -p 8020:80 --link mysqlserver --name suitecrmserver suitecrm`
+4. Run: `docker run -d -p 8020:80 -p 8443:443 --link mysqlserver --name suitecrmserver suitecrm`
 
 
 ## Persist SuiteCRM Installation

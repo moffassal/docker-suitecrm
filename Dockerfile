@@ -1,5 +1,5 @@
 FROM php:5.6-apache
-MAINTAINER Simon Hugentobler <simon.hugentobler@bertschi.com>
+MAINTAINER Moffassal Hossain <moffassal@gmail.com>
 
 
 
@@ -40,7 +40,7 @@ RUN docker-php-ext-install -j$(nproc) iconv mcrypt \
         ldap
 
 #Setting UP SuiteCRM
-RUN curl -O https://codeload.github.com/salesagility/SuiteCRM/tar.gz/v7.7.7 && tar xvfz v7.7.7 --strip 1 -C /var/www/html
+RUN curl -O https://codeload.github.com/salesagility/SuiteCRM/tar.gz/v7.7.9 && tar xvfz v7.7.9 --strip 1 -C /var/www/html
 RUN chown www-data:www-data /var/www/html/ -R
 RUN cd /var/www/html && chmod -R 755 .
 RUN (crontab -l 2>/dev/null; echo "*    *    *    *    *     cd /var/www/html; php -f cron.php > /dev/null 2>&1 ") | crontab -
@@ -50,4 +50,4 @@ RUN apt-get clean
 VOLUME /var/www/html/upload
 
 WORKDIR /var/www/html
-EXPOSE 80
+EXPOSE 80 443
